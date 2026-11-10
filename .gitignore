@@ -1,0 +1,20 @@
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+*.iml
+.idea/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+# Android signing & secrets (لا ترفعها أبدًا)
+*.jks
+*.keystore
+key.properties
+local.properties
+.env
+.env.*
+# Node
+node_modules/
+# OS
+.DS_Store
