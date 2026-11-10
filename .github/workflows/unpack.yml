@@ -1,0 +1,22 @@
+name: Unpack
+on:
+  push:
+    paths: ['phase*.zip']
+permissions:
+  contents: write
+jobs:
+  unpack:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          for z in phase*.zip; do
+            [ -e "$z" ] || continue
+            unzip -o "$z"
+            rm "$z"
+          done
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add -A
+          git commit -m "Unpack phase files" || exit 0
+          git push
